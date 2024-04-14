@@ -3,17 +3,14 @@ from random import randint
 palavras = ['cacto']
 
 numero_de_vidas = 5
-palavra_escolhida = gerar_palavra()
 letras_digitadas = []
 
 def gerar_palavra():
     randnum = randint(0, len(palavras)-1)
     return palavras[randnum]
-   
-
-
 
 def main():
+    palavra_escolhida = gerar_palavra()
     print('Iniciando jogo')
     while True:
         
