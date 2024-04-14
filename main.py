@@ -1,5 +1,4 @@
 from random import randint
-
 palavras = ['cacto']
 
 letras_digitadas = []
@@ -44,15 +43,10 @@ def main():
     print('Iniciando jogo')
 
     while True:
-
         print(lista_secreta)
         letra = receber_letra()
         
-        if len(letra) > 1:
-            print('PORFAVOR DIGITE SO UMA LETRA..')
-        
-        
-        elif letra in letras_digitadas:
+        if letra in letras_digitadas:
             print(f'LETRA JÁ DIGITADA')
             
         elif letra not in letras_digitadas:
