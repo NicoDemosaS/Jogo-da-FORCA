@@ -4,11 +4,11 @@ palavras = ['cacto']
 
 letras_digitadas = []
 
-def gerar_palavra():
+def gerar_palavra():  # GERA PALAVRA ALEATORIA DA LISTA PALAVRAS
     randnum = randint(0, len(palavras)-1)
     return palavras[randnum]
 
-def achar_posicao(letra, palavra_escolhida):
+def achar_posicao(letra, palavra_escolhida):   
     cont = 0 
     letras_escontradas = []
     for ltr in palavra_escolhida:
@@ -18,16 +18,26 @@ def achar_posicao(letra, palavra_escolhida):
             letras_escontradas.append(cont-1) 
     return letras_escontradas
 
-def receber_letra():
-    pass
+def receber_letra():  # CORRIGIR ERROS INPUT DA LETRA
+    letra = input('Letra: ').upper()
+    
+    alfabeto = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+   
+    letra.strip()
+    
+    if len(letra) > 1:
+        print('Erro, letra > 1')
+        receber_letra()
         
+    if letra not in alfabeto:
+        print('Letra nao esta no alfabeto')
+        receber_letra()
         
-        
-        
-        
+    return letra
+
 def main():
     numero_de_vidas = 5
-    palavra_escolhida = gerar_palavra()
+    palavra_escolhida = gerar_palavra().upper()
     palavra_secreta = len(palavra_escolhida) * '-'
     lista_secreta = list(palavra_secreta)
     
@@ -36,7 +46,7 @@ def main():
     while True:
 
         print(lista_secreta)
-        letra = input("Letra: ")
+        letra = receber_letra()
         
         if len(letra) > 1:
             print('PORFAVOR DIGITE SO UMA LETRA..')
@@ -62,7 +72,7 @@ def main():
                     
             print(f'Letras digitadas : {letras_digitadas}')
          
-        elif '-' not in lista_secreta:
+        if '-' not in lista_secreta:
             print(lista_secreta)
             break
                 
